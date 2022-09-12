@@ -14,7 +14,9 @@ import Button from '../components/Button';
 
 const LoginScreen = () => {
   const [userName, setUserName] = useState('');
+  const [userNameFocus, setUserNameFocus] = useState(false);
   const [password, setPassword] = useState('');
+  const [passwordFocus, setPasswordFocus] = useState(false);
   return (
     <SafeAreaView style={styles.safeView}>
       <ScrollView>
@@ -31,18 +33,27 @@ const LoginScreen = () => {
             </View>
             <View style={styles.inputContainerMini}>
               <TextInput
-                style={styles.textInput}
-                // hoverStyle={styles.textInputHover}
+                style={[
+                  styles.textInput,
+                  userNameFocus && styles.textInputFocus,
+                ]}
                 placeholder='Email'
                 onChangeText={(newText) => setUserName(newText)}
+                onFocus={() => setUserNameFocus(true)}
+                onBlur={() => setUserNameFocus(false)}
                 defaultValue={userName}
               />
             </View>
             <View style={styles.inputContainerMini}>
               <TextInput
-                style={styles.textInput}
+                style={[
+                  styles.textInput,
+                  passwordFocus && styles.textInputFocus,
+                ]}
                 placeholder='Password'
                 onChangeText={(newText) => setPassword(newText)}
+                onFocus={() => setPasswordFocus(true)}
+                onBlur={() => setPasswordFocus(false)}
                 defaultValue={password}
               />
             </View>
@@ -82,6 +93,10 @@ const styles = StyleSheet.create({
   },
   inputContainerMini: {
     marginBottom: 20,
+  },
+  textInputFocus: {
+    borderWidth: 1,
+    borderColor: colors.primary,
   },
   image: {
     marginLeft: 'auto',
