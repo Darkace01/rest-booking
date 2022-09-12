@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   TextInput,
   TouchableOpacity,
@@ -13,6 +12,7 @@ import { colors, fonts } from '../constants/globalStyles';
 import Button from '../components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { REGISTER_SCREEN } from '../constants/screenRoutes';
+import Logo from '../components/Logo';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -29,10 +29,7 @@ const LoginScreen = () => {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.imageContainer}>
-            <Image
-              source={require('../../assets/images/rest-booking-logo.png')}
-              style={styles.image}
-            />
+            <Logo customStyle={styles.image} />
           </View>
           <View style={styles.inputContainer}>
             <View style={styles.inputContainerMini}>
@@ -79,7 +76,6 @@ const LoginScreen = () => {
               <Button text='Continue with Google' inverted icon='google' />
             </View>
           </View>
-          <View></View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -92,9 +88,11 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 20,
-    paddingTop: 100,
+    paddingTop: 80,
   },
-  imageContainer: {},
+  imageContainer: {
+    paddingBottom: 10,
+  },
   inputContainer: {
     justifyContent: 'space-around',
   },
