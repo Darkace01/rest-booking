@@ -12,6 +12,7 @@ import {
 import Loading from './src/components/Loading';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,22 +38,25 @@ export default function App() {
     checkOnboarding();
   }, []);
   return (
-    <NavigationContainer>
-      {loading ? (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={LOADING_SCREEN} component={Loading} />
-        </Stack.Navigator>
-      ) : viewedOnboarding ? (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
-          <Stack.Screen name={REGISTER_SCREEN} component={RegisterScreen} />
-        </Stack.Navigator>
-      ) : (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={SPLASH_SCREEN} component={SplashScreen} />
-          <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
-        </Stack.Navigator>
-      )}
-    </NavigationContainer>
+    <>
+      <StatusBar style='auto' />
+      <NavigationContainer>
+        {loading ? (
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={LOADING_SCREEN} component={Loading} />
+          </Stack.Navigator>
+        ) : viewedOnboarding ? (
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
+            <Stack.Screen name={REGISTER_SCREEN} component={RegisterScreen} />
+          </Stack.Navigator>
+        ) : (
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={SPLASH_SCREEN} component={SplashScreen} />
+            <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
+    </>
   );
 }

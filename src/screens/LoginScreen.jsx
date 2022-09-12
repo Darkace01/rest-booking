@@ -5,9 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, fonts } from '../constants/globalStyles';
 import Button from '../components/Button';
 import { useNavigation } from '@react-navigation/native';
