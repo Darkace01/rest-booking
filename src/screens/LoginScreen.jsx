@@ -11,12 +11,19 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, fonts } from '../constants/globalStyles';
 import Button from '../components/Button';
+import { useNavigation } from '@react-navigation/native';
+import { REGISTER_SCREEN } from '../constants/screenRoutes';
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [userName, setUserName] = useState('');
   const [userNameFocus, setUserNameFocus] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordFocus, setPasswordFocus] = useState(false);
+
+  const handleRegister = () => {
+    navigation.navigate(REGISTER_SCREEN);
+  };
   return (
     <SafeAreaView style={styles.safeView}>
       <ScrollView>
@@ -66,7 +73,7 @@ const LoginScreen = () => {
               <Button text='Login' />
             </View>
             <View style={styles.inputContainerMini}>
-              <Button text='Sign Up' inverted />
+              <Button text='Sign Up' inverted handleClick={handleRegister} />
             </View>
             <View style={styles.inputContainerMini}>
               <Button text='Continue with Google' inverted icon='google' />

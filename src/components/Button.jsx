@@ -3,9 +3,9 @@ import React from 'react';
 import { colors } from '../constants/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
-const Button = ({ text, inverted, icon }) => {
+const Button = ({ text, inverted, icon, handleClick }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={handleClick}>
       <View
         style={[
           styles.container,
