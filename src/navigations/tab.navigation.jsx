@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
@@ -28,7 +28,7 @@ const TabNavigation = () => {
           position: 'absolute',
           bottom: 0,
           height: 78,
-          paddingHorizontal: 20,
+          paddingHorizontal: 40,
           paddingBottom: 20,
           paddingTop: 5,
         },
@@ -53,6 +53,11 @@ const TabNavigation = () => {
               />
             </View>
           ),
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+              Home
+            </Text>
+          ),
         }}
       />
       <Tab.Screen
@@ -62,11 +67,16 @@ const TabNavigation = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconStyle}>
               <FontAwesome
-                name='home'
+                name='list-ol'
                 size={23}
                 color={focused ? colors.primary : '#848484'}
               />
             </View>
+          ),
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+              Order
+            </Text>
           ),
         }}
       />
@@ -77,11 +87,16 @@ const TabNavigation = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconStyle}>
               <FontAwesome
-                name='home'
+                name='user-o'
                 size={23}
                 color={focused ? colors.primary : '#848484'}
               />
             </View>
+          ),
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+              Profile
+            </Text>
           ),
         }}
       />
