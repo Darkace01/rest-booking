@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 import React from 'react';
 
 const ActionCard = ({ title, imageUrl }) => {
-  console.log(imageUrl);
   return (
     <View style={styles.container}>
       <ImageBackground

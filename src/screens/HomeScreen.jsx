@@ -3,6 +3,8 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderCall from '../components/HeaderCall';
 import ActionCard from '../components/ActionCard';
+import { atmImage, billImage } from '../constants/assests';
+const assets = require('../constants/assests');
 
 const HomeScreen = () => {
   return (
@@ -14,11 +16,8 @@ const HomeScreen = () => {
         showNotificationIcon
       />
       <View style={styles.actionContainer}>
-        <ActionCard title='New Order' imageUrl='../../assets/images/atm.png' />
-        <ActionCard
-          imageUrl='../../assets/images/bills.png'
-          title='Split Bill'
-        />
+        <ActionCard title='New Order' imageUrl={atmImage} />
+        <ActionCard imageUrl={billImage} title='Split Bill' />
       </View>
       <View>
         <Text style={styles.title}>Promo</Text>
