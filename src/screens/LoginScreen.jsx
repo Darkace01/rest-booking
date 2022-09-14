@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 20,
-    paddingTop: 80,
+    paddingTop: 120,
   },
   imageContainer: {
     paddingBottom: 10,
@@ -115,22 +115,23 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'left',
     color: colors.primary,
-    // fontFamily: fonts.primary,
+    fontFamily: fonts.font600,
   },
   forgotPassword: {
     fontSize: 14,
     fontWeight: '600',
     textAlign: 'left',
     color: colors.primary,
-    // fontFamily: fonts.primary,
+    fontFamily: fonts.font600,
   },
   textInput: {
     height: 60,
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: '400',
     backgroundColor: colors.lightBackground,
     borderRadius: 16,
     paddingLeft: 20,
+    fontFamily: fonts.primary,
   },
 });
 export default LoginScreen;

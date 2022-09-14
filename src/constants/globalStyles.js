@@ -5,5 +5,7 @@ export const colors = {
 };
 
 export const fonts = {
-  primary: 'Montserrat',
+  primary: 'Montserrat_400Regular',
+  font600: 'Montserrat_600SemiBold',
+  font700: 'Montserrat_700Bold',
 };

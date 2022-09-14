@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
-import { colors } from '../constants/globalStyles';
+import { colors, fonts } from '../constants/globalStyles';
 
 const HeaderCall = ({ title, emoji, subtitle, showNotificationIcon }) => {
   return (
@@ -29,11 +29,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '400',
+    fontFamily: fonts.font600,
   },
   subtitle: {
     fontSize: 16,
     color: '#848484',
+    fontFamily: fonts.primary,
   },
 });
 

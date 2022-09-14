@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import { fonts } from '../constants/globalStyles';
 
 const ActionCard = ({ title, imageUrl, callBack }) => {
   return (
@@ -45,8 +46,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
   },
   text: {
-    fontSize: 15,
-    fontWeight: '500',
+    fontSize: 14,
+    fontFamily: fonts.font600,
   },
 });
 

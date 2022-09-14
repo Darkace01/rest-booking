@@ -14,6 +14,7 @@ import PromoCard from '../components/PromoCard';
 import FeedbackCard from '../components/FeedbackCard';
 import { useNavigation } from '@react-navigation/native';
 import { ORDER_SCREEN } from '../constants/screenRoutes';
+import { fonts } from '../constants/globalStyles';
 const assets = require('../constants/assests');
 
 const HomeScreen = () => {
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     paddingBottom: 20,
+    fontFamily: fonts.primary,
   },
   actionContainer: {
     flexDirection: 'row',
@@ -67,8 +69,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   title: {
-    fontSize: 24,
-    fontWeight: '500',
+    fontSize: 20,
+    fontFamily: fonts.font600,
+    marginBottom: 10,
   },
   sectionContainer: {
     paddingTop: 20,

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import { colors } from '../constants/globalStyles';
+import { colors, fonts } from '../constants/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
 const FeedbackCard = () => {
@@ -39,15 +39,16 @@ const styles = StyleSheet.create({
     bottom: -18,
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.primary,
+    fontFamily: fonts.font600,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    paddingRight: 20,
+    paddingRight: 30,
   },
   iconContainer: {
     justifyContent: 'center',

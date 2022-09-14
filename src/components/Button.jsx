@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import React from 'react';
-import { colors } from '../constants/globalStyles';
+import { colors, fonts } from '../constants/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
 const Button = ({ text, inverted, icon, handleClick }) => {
@@ -46,11 +46,12 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 24,
+    fontSize: 16,
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: 'auto',
     marginBottom: 'auto',
+    fontFamily: fonts.font600,
   },
 });
 

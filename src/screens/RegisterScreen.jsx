@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import Button from '../components/Button';
-import { colors } from '../constants/globalStyles';
+import { colors, fonts } from '../constants/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import { LOGIN_SCREEN } from '../constants/screenRoutes';
 import Logo from '../components/Logo';
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 20,
-    paddingTop: 80,
+    paddingTop: 120,
   },
   imageContainer: {
     paddingBottom: 10,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'left',
     color: colors.primary,
-    // fontFamily: fonts.primary,
+    fontFamily: fonts.font600,
   },
   forgotPassword: {
     fontSize: 14,
@@ -144,11 +144,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 60,
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: '400',
     backgroundColor: colors.lightBackground,
     borderRadius: 16,
     paddingLeft: 20,
+    fontFamily: fonts.primary,
   },
 });
 export default RegisterScreen;
