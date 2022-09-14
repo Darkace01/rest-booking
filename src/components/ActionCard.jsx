@@ -1,18 +1,27 @@
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
-const ActionCard = ({ title, imageUrl }) => {
+const ActionCard = ({ title, imageUrl, callBack }) => {
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../../assets/images/action-card-background.png')}
-        resizeMode='cover'
-        style={styles.backgroundImage}
-      >
-        <Text style={styles.text}>{title}</Text>
-        <Image source={imageUrl} style={styles.image} />
-      </ImageBackground>
-    </View>
+    <TouchableOpacity onPress={callBack}>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../../assets/images/action-card-background.png')}
+          resizeMode='cover'
+          style={styles.backgroundImage}
+        >
+          <Text style={styles.text}>{title}</Text>
+          <Image source={imageUrl} style={styles.image} />
+        </ImageBackground>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -21,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
   },
   backgroundImage: {
-    width: 150,
+    width: 170,
     height: 200,
     borderRadius: 30,
     overflow: 'hidden',

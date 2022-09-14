@@ -12,9 +12,15 @@ import {
 } from '../constants/assests';
 import PromoCard from '../components/PromoCard';
 import FeedbackCard from '../components/FeedbackCard';
+import { useNavigation } from '@react-navigation/native';
+import { ORDER_SCREEN } from '../constants/screenRoutes';
 const assets = require('../constants/assests');
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+  const handleOnPress = async () => {
+    navigation.navigate(ORDER_SCREEN);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -25,7 +31,11 @@ const HomeScreen = () => {
           showNotificationIcon
         />
         <View style={styles.actionContainer}>
-          <ActionCard title='New Order' imageUrl={atmImage} />
+          <ActionCard
+            title='New Order'
+            imageUrl={atmImage}
+            callBack={handleOnPress}
+          />
           <ActionCard imageUrl={billImage} title='Split Bill' />
         </View>
         <View style={styles.sectionContainer}>
