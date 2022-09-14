@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderCall from '../components/HeaderCall';
 import CustomSearchBar from '../components/SearchBar';
+import RestaurantMiniCard from '../components/RestaurantMiniCard';
 
 const OrderScreen = () => {
   return (
@@ -13,8 +14,12 @@ const OrderScreen = () => {
           emoji='🤭'
           subtitle='Confused? Order nearby!'
         />
-        <View style={styles.searchBarContainer}>
+        <View style={styles.sectionContainer}>
           <CustomSearchBar />
+        </View>
+        <View style={[styles.sectionContainer, styles.restaurantGrid]}>
+          <RestaurantMiniCard />
+          <RestaurantMiniCard />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -27,8 +32,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingBottom: 20,
   },
-  searchBarContainer: {
+  sectionContainer: {
     marginTop: 20,
+  },
+  restaurantGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
