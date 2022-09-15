@@ -1,63 +1,62 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
+import assetsObject from '../constants/assests';
 import { colors, fonts } from '../constants/globalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const FeedbackCard = () => {
+const RestaurantNav = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={require('../../assets/images/feedback-image.png')}
-          style={styles.image}
-        />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>
-          Enjoy using the app? Fill in the feedback here!
-        </Text>
-      </View>
       <View style={styles.iconContainer}>
         <MaterialIcons
-          name='keyboard-arrow-right'
+          name='keyboard-arrow-left'
           size={23}
           color={colors.primary}
         />
       </View>
+      <View style={styles.imageContainer}>
+        <Image source={assetsObject.restIcon1} style={styles.image} />
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Solari</Text>
+        <Text style={styles.subTitle}>200 M</Text>
+      </View>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.lightBackground,
-    borderRadius: 10,
-    padding: 20,
+    borderRadius: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   imageContainer: {
     position: 'relative',
   },
-  image: {
-    bottom: -18,
-  },
+  image: {},
   title: {
     fontSize: 14,
-    color: colors.primary,
     fontFamily: fonts.font600,
+  },
+  subTitle: {
+    fontSize: 12,
+    fontFamily: fonts.font600,
+    color: colors.gray2,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    paddingRight: 30,
   },
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
-
-export default FeedbackCard;
+export default RestaurantNav;

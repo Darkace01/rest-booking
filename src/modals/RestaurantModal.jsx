@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../constants/globalStyles';
@@ -15,10 +15,16 @@ import { useNavigation } from '@react-navigation/native';
 import assetsObject from '../constants/assests';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Button from '../components/Button';
+import RestaurantNav from '../components/RestaurantNav';
+import DateSelection from '../components/DateSelection';
 
 const RestaurantModal = () => {
+  const [reserve, setReserve] = useState(false);
   const navigation = useNavigation();
   const { height } = useWindowDimensions();
+  const handleReserve = () => {
+    setReserve(true);
+  };
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
@@ -36,53 +42,63 @@ const RestaurantModal = () => {
             <Text style={styles.navTitle}>Reserve</Text>
           </View>
         </View>
-        <View style={styles.secContainer}>
-          <Image
-            source={assetsObject.restLarge1}
-            style={[styles.image, { height: height * 0.44 }]}
-          />
-          <View style={styles.infoContainer}>
-            <Text style={styles.title}>Solaria</Text>
+        {!reserve ? (
+          <View style={styles.secContainer}>
+            <Image
+              source={assetsObject.restLarge1}
+              style={[styles.image, { height: height * 0.44 }]}
+            />
             <View style={styles.infoContainer}>
-              <Text style={styles.description}>
-                Solaria adalah restoran lokal asli Indonesia yang berdiri sejak
-                tahun 1995, merupakan restoran keluarga dengan konsep casual
-                dining yang menyajikan menu-menu makanan khas yang disajikan
-                secara fresh food (dimasak setelah makanan dipsesan).
-              </Text>
-              <View style={styles.infoIconContainer}>
-                <View>
-                  <FontAwesome5
-                    name='wheelchair'
-                    size={14}
-                    color={colors.gray2}
-                  />
+              <Text style={styles.title}>Solaria</Text>
+              <View style={styles.infoContainer}>
+                <Text style={styles.description}>
+                  Solaria adalah restoran lokal asli Indonesia yang berdiri
+                  sejak tahun 1995, merupakan restoran keluarga dengan konsep
+                  casual dining yang menyajikan menu-menu makanan khas yang
+                  disajikan secara fresh food (dimasak setelah makanan
+                  dipsesan).
+                </Text>
+                <View style={styles.infoIconContainer}>
+                  <View>
+                    <FontAwesome5
+                      name='wheelchair'
+                      size={14}
+                      color={colors.gray2}
+                    />
+                  </View>
+                  <View>
+                    <Text style={styles.info}>12 Seat left</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text style={styles.info}>12 Seat left</Text>
+                <View style={styles.infoIconContainer}>
+                  <View>
+                    <FontAwesome5
+                      name='map-marker'
+                      size={14}
+                      color={colors.gray2}
+                    />
+                  </View>
+                  <View>
+                    <Text style={styles.info}>200 M</Text>
+                  </View>
                 </View>
               </View>
-              <View style={styles.infoIconContainer}>
-                <View>
-                  <FontAwesome5
-                    name='map-marker'
-                    size={14}
-                    color={colors.gray2}
-                  />
-                </View>
-                <View>
-                  <Text style={styles.info}>200 M</Text>
-                </View>
+              <View style={styles.buttonContainer}>
+                <Button text='Reserve Table' handleClick={handleReserve} />
               </View>
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button text='Reserve Table' />
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button text='Self-Pick Up' inverted />
+              <View style={styles.buttonContainer}>
+                <Button text='Self-Pick Up' inverted />
+              </View>
             </View>
           </View>
-        </View>
+        ) : (
+          <View style={styles.secContainer}>
+            <RestaurantNav />
+            <View style={styles.infoContainer}>
+              <DateSelection />
+            </View>
+          </View>
+        )}
       </SafeAreaView>
     </ScrollView>
   );
