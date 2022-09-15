@@ -20,6 +20,10 @@ const OrderScreen = () => {
         <View style={[styles.sectionContainer, styles.restaurantGrid]}>
           <RestaurantMiniCard />
           <RestaurantMiniCard />
+          <RestaurantMiniCard />
+          <RestaurantMiniCard />
+          <RestaurantMiniCard />
+          <RestaurantMiniCard />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -30,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    paddingBottom: 20,
+    paddingBottom: 80,
   },
   sectionContainer: {
     marginTop: 20,
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
   restaurantGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
   },
 });
 
