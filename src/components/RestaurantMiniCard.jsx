@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import { fonts, colors } from '../constants/globalStyles';
 import { FontAwesome5 } from '@expo/vector-icons';
-import Button from './Button';
+import MediumButton from './MediumButton';
 
 const RestaurantMiniCard = ({
   title,
@@ -44,7 +44,7 @@ const RestaurantMiniCard = ({
           </View>
         </View>
         <View style={styles.buttonContainer}>
-          <Button text='Order' handleClick={callBack} />
+          <MediumButton text='Order' handleClick={callBack} />
         </View>
       </View>
     </View>

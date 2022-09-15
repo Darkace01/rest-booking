@@ -6,3 +6,4 @@ export const HOME_SCREEN = 'Home';
 export const PROFILE_SCREEN = 'Profile';
 export const ORDER_SCREEN = 'Order';
 export const DASHBOARD = 'Dashboard';
+export const RESTAURANT_MODAL = 'RestaurantModal';

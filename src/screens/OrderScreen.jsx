@@ -5,8 +5,14 @@ import HeaderCall from '../components/HeaderCall';
 import CustomSearchBar from '../components/SearchBar';
 import RestaurantMiniCard from '../components/RestaurantMiniCard';
 import assetsObject from '../constants/assests';
+import { useNavigation } from '@react-navigation/native';
+import { RESTAURANT_MODAL } from '../constants/screenRoutes';
 
 const OrderScreen = () => {
+  const navigation = useNavigation();
+  const navigateToRestaurant = () => {
+    navigation.navigate(RESTAURANT_MODAL);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -24,24 +30,28 @@ const OrderScreen = () => {
             seats={12}
             distance={200}
             imagePath={assetsObject.restMin1}
+            callBack={navigateToRestaurant}
           />
           <RestaurantMiniCard
             title='Gokana'
             seats={8}
             distance={582}
             imagePath={assetsObject.restMin2}
+            callBack={navigateToRestaurant}
           />
           <RestaurantMiniCard
             title='Baso Ati Raja'
             seats={15}
             distance={600}
             imagePath={assetsObject.restMin1}
+            callBack={navigateToRestaurant}
           />
           <RestaurantMiniCard
             title='Iciban'
             seats={9}
             distance={600}
             imagePath={assetsObject.restMin2}
+            callBack={navigateToRestaurant}
           />
         </View>
       </ScrollView>

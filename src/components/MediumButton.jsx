@@ -3,7 +3,7 @@ import React from 'react';
 import { colors, fonts } from '../constants/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
-const Button = ({ text, inverted, icon, handleClick }) => {
+const MediumButton = ({ text, inverted, icon, handleClick }) => {
   return (
     <TouchableOpacity onPress={handleClick}>
       <View
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
     minWidth: '100%',
     textAlign: 'center',
-    height: 60,
+    height: 40,
     borderWidth: 1,
     borderColor: colors.primary,
   },
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default MediumButton;
