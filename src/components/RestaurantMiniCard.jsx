@@ -4,22 +4,24 @@ import { fonts, colors } from '../constants/globalStyles';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Button from './Button';
 
-const RestaurantMiniCard = () => {
+const RestaurantMiniCard = ({
+  title,
+  seats,
+  distance,
+  imagePath,
+  callBack,
+}) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../assets/images/rest-1.png')}
-        resizeMethod='scale'
-        style={styles.image}
-      />
+      <Image source={imagePath} resizeMethod='scale' style={styles.image} />
       <View style={styles.secContainer}>
-        <Text style={styles.title}>Solaria</Text>
+        <Text style={styles.title}>{title}</Text>
         <View style={styles.infoContainer}>
           <View>
             <FontAwesome5 name='wheelchair' size={14} color={colors.gray2} />
           </View>
           <View>
-            <Text style={styles.info}>12 Seat left</Text>
+            <Text style={styles.info}>{seats ? seats : 0} Seat left</Text>
           </View>
         </View>
         <View style={styles.infoContainer}>
@@ -27,11 +29,11 @@ const RestaurantMiniCard = () => {
             <FontAwesome5 name='map-marker' size={14} color={colors.gray2} />
           </View>
           <View>
-            <Text style={styles.info}>200 M</Text>
+            <Text style={styles.info}>{distance ? distance : 0} M</Text>
           </View>
         </View>
         <View style={styles.buttonContainer}>
-          <Button text='Order' />
+          <Button text='Order' handleClick={callBack} />
         </View>
       </View>
     </View>

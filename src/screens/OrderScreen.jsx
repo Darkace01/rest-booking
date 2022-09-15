@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderCall from '../components/HeaderCall';
 import CustomSearchBar from '../components/SearchBar';
 import RestaurantMiniCard from '../components/RestaurantMiniCard';
+import assetsObject from '../constants/assests';
 
 const OrderScreen = () => {
   return (
@@ -18,12 +19,30 @@ const OrderScreen = () => {
           <CustomSearchBar />
         </View>
         <View style={[styles.sectionContainer, styles.restaurantGrid]}>
-          <RestaurantMiniCard />
-          <RestaurantMiniCard />
-          <RestaurantMiniCard />
-          <RestaurantMiniCard />
-          <RestaurantMiniCard />
-          <RestaurantMiniCard />
+          <RestaurantMiniCard
+            title='Solaria'
+            seats={12}
+            distance={200}
+            imagePath={assetsObject.restMin1}
+          />
+          <RestaurantMiniCard
+            title='Gokana'
+            seats={8}
+            distance={582}
+            imagePath={assetsObject.restMin2}
+          />
+          <RestaurantMiniCard
+            title='Baso Ati Raja'
+            seats={15}
+            distance={600}
+            imagePath={assetsObject.restMin1}
+          />
+          <RestaurantMiniCard
+            title='Iciban'
+            seats={9}
+            distance={600}
+            imagePath={assetsObject.restMin2}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
