@@ -1,4 +1,10 @@
-import { View, Text, Image, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  useWindowDimensions,
+} from 'react-native';
 import React from 'react';
 import { fonts, colors } from '../constants/globalStyles';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -11,9 +17,14 @@ const RestaurantMiniCard = ({
   imagePath,
   callBack,
 }) => {
+  const { width, height } = useWindowDimensions();
   return (
-    <View style={styles.container}>
-      <Image source={imagePath} resizeMethod='scale' style={styles.image} />
+    <View style={[styles.container, { width: width * 0.44 }]}>
+      <Image
+        source={imagePath}
+        resizeMethod='scale'
+        style={[styles.image, { height: height * 0.23 }]}
+      />
       <View style={styles.secContainer}>
         <Text style={styles.title}>{title}</Text>
         <View style={styles.infoContainer}>
@@ -42,7 +53,7 @@ const RestaurantMiniCard = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: 165,
+    width: 155,
   },
   image: {
     width: '100%',
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: fonts.font600,
   },
   infoContainer: {

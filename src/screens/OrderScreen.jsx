@@ -51,7 +51,7 @@ const OrderScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingVertical: 10,
     paddingBottom: 80,
   },

@@ -10,7 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 import { FontAwesome } from '@expo/vector-icons';
 import OrderScreen from '../screens/OrderScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import { colors } from '../constants/globalStyles';
+import {colors, fonts} from '../constants/globalStyles';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,13 +48,13 @@ const TabNavigation = () => {
             <View style={styles.iconStyle}>
               <FontAwesome
                 name='home'
-                size={23}
+                size={18}
                 color={focused ? colors.primary : '#848484'}
               />
             </View>
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+            <Text style={{ color: focused ? colors.primary : '#848484' ,fontFamily:fonts.primary,fontSize:12}}>
               Home
             </Text>
           ),
@@ -68,13 +68,13 @@ const TabNavigation = () => {
             <View style={styles.iconStyle}>
               <FontAwesome
                 name='list-ol'
-                size={23}
+                size={18}
                 color={focused ? colors.primary : '#848484'}
               />
             </View>
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+            <Text style={{ color: focused ? colors.primary : '#848484' ,fontFamily:fonts.primary,fontSize:12}}>
               Order
             </Text>
           ),
@@ -88,13 +88,13 @@ const TabNavigation = () => {
             <View style={styles.iconStyle}>
               <FontAwesome
                 name='user-o'
-                size={23}
+                size={18}
                 color={focused ? colors.primary : '#848484'}
               />
             </View>
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? colors.primary : '#848484' }}>
+            <Text style={{ color: focused ? colors.primary : '#848484' ,fontFamily:fonts.primary,fontSize:12}}>
               Profile
             </Text>
           ),
