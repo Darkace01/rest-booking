@@ -5,14 +5,14 @@ import { useState } from 'react';
 import { colors, fonts } from '../constants/globalStyles';
 
 const CalendarSelection = () => {
-  var today = new Date().toString('yyyy-MM-dd');
+  var today = new Date();
+  const todayDate = today.toISOString().slice(0, 10);
   const initalMarkedDate = {
-    [today]: {
+    [todayDate]: {
       selected: true,
     },
   };
   const [markedDate, setMarkedDate] = useState(initalMarkedDate);
-
   const handleDateSelection = (date) => {
     setMarkedDate({
       [date.dateString]: {
@@ -23,7 +23,7 @@ const CalendarSelection = () => {
   return (
     <View>
       <Calendar
-        minDate={today}
+        minDate={today.toISOString()}
         markedDates={markedDate}
         onDayPress={handleDateSelection}
         theme={{
@@ -43,6 +43,7 @@ const CalendarSelection = () => {
           textDayFontFamily: fonts.font600,
           textMonthFontFamily: fonts.font600,
           textDayHeaderFontFamily: fonts.font600,
+          monthTextColor: colors.primary,
         }}
       />
     </View>
