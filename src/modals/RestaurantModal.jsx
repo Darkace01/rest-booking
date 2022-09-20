@@ -25,6 +25,10 @@ const RestaurantModal = () => {
   const handleReserve = () => {
     setReserve(true);
   };
+
+  const handleBack = () => {
+    setReserve(!reserve);
+  };
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
@@ -39,7 +43,9 @@ const RestaurantModal = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.navTitleContainer}>
-            <Text style={styles.navTitle}>Reserve</Text>
+            <Text style={styles.navTitle}>
+              {reserve ? 'Reserve Table' : 'Reserve'}
+            </Text>
           </View>
         </View>
         {!reserve ? (
@@ -93,7 +99,7 @@ const RestaurantModal = () => {
           </View>
         ) : (
           <View style={styles.secContainer}>
-            <RestaurantNav />
+            <RestaurantNav handleOnClick={handleBack} />
             <View style={styles.infoContainer}>
               <DateSelection />
             </View>

@@ -7,5 +7,6 @@ const assetsObject = {
   restMin1: require('../../assets/images/rest-1.png'),
   restMin2: require('../../assets/images/rest-2.png'),
   restLarge1: require('../../assets/images/restaurant-large.png'),
+  restIcon1: require('../../assets/images/rest-icon.png'),
 };
 module.exports = assetsObject;
