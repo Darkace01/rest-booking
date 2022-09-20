@@ -16,7 +16,7 @@ import assetsObject from '../constants/assests';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Button from '../components/Button';
 import RestaurantNav from '../components/RestaurantNav';
-import DateSelection from '../components/DateSelection';
+import CalendarSelection from '../components/CalendarSelection';
 
 const RestaurantModal = () => {
   const [reserve, setReserve] = useState(false);
@@ -101,7 +101,7 @@ const RestaurantModal = () => {
           <View style={styles.secContainer}>
             <RestaurantNav handleOnClick={handleBack} />
             <View style={styles.infoContainer}>
-              <DateSelection />
+              <CalendarSelection />
             </View>
           </View>
         )}
