@@ -3,6 +3,8 @@ export const colors = {
   gray: '#F2F2F2',
   gray2: '#787878',
   lightBackground: '#FFFAEC',
+  mainBackgroundColor: 'FEFFFF',
+  white: '#FFFFFF',
 };
 
 export const fonts = {

@@ -1,11 +1,12 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useState } from 'react';
 import { colors, fonts } from '../constants/globalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 
-const CalendarSelection = () => {
+const CalendarDateSelection = () => {
   var today = new Date();
   const todayDate = today.toISOString().slice(0, 10);
   const initalMarkedDate = {
@@ -14,6 +15,7 @@ const CalendarSelection = () => {
     },
   };
   const [markedDate, setMarkedDate] = useState(initalMarkedDate);
+  const [time, setTime] = useState(new Date());
   const handleDateSelection = (date) => {
     setMarkedDate({
       [date.dateString]: {
@@ -47,8 +49,10 @@ const CalendarSelection = () => {
     }
     return <ArrowRight />;
   };
+
+  const setDate = (event, date) => {};
   return (
-    <View>
+    <View style={styles.container}>
       <Calendar
         minDate={today.toISOString()}
         markedDates={markedDate}
@@ -74,8 +78,58 @@ const CalendarSelection = () => {
           monthTextColor: colors.primary,
         }}
       />
+      <View style={styles.timeContainer}>
+        <View style={styles.timeTitleContainer}>
+          <Text style={styles.timeTitle}>Time</Text>
+        </View>
+        <View style={styles.timePickerContainer}>
+          <TouchableOpacity style={styles.timePicker}>
+            <Text style={styles.timePickerText}>
+              {time.toLocaleTimeString()}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {/* <RNDateTimePicker mode='time' onChange={setDate} value={time} /> */}
     </View>
   );
 };
 
-export default CalendarSelection;
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+  },
+  timeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  timeTitleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  timeTitle: {
+    fontFamily: fonts.font600,
+    fontSize: 16,
+    color: colors.primary,
+  },
+  timePickerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  timePicker: {
+    backgroundColor: colors.primary,
+    padding: 10,
+    borderRadius: 10,
+  },
+  timePickerText: {
+    fontFamily: fonts.font600,
+    fontSize: 16,
+    color: colors.white,
+  },
+});
+
+export default CalendarDateSelection;

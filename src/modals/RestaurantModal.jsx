@@ -16,7 +16,7 @@ import assetsObject from '../constants/assests';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Button from '../components/Button';
 import RestaurantNav from '../components/RestaurantNav';
-import CalendarSelection from '../components/CalendarSelection';
+import CalendarDateSelection from '../components/CalendarDateSelection';
 
 const RestaurantModal = () => {
   const [reserve, setReserve] = useState(false);
@@ -101,7 +101,7 @@ const RestaurantModal = () => {
           <View style={styles.secContainer}>
             <RestaurantNav handleOnClick={handleBack} />
             <View style={styles.infoContainer}>
-              <CalendarSelection />
+              <CalendarDateSelection />
             </View>
           </View>
         )}
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     paddingBottom: 80,
+    backgroundColor: colors.mainBackgroundColor,
   },
   navContainer: {
     flexDirection: 'row',
