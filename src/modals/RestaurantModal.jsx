@@ -17,6 +17,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import Button from '../components/Button';
 import RestaurantNav from '../components/RestaurantNav';
 import CalendarDateSelection from '../components/CalendarDateSelection';
+import NumberOrder from '../components/NumberOrder';
 
 const RestaurantModal = () => {
   const [reserve, setReserve] = useState(false);
@@ -101,7 +102,25 @@ const RestaurantModal = () => {
           <View style={styles.secContainer}>
             <RestaurantNav handleOnClick={handleBack} />
             <View style={styles.infoContainer}>
+              <Text style={styles.title}>Choose Order Date</Text>
+            </View>
+            <View style={styles.infoContainer}>
               <CalendarDateSelection />
+            </View>
+            <View style={styles.infoContainer}>
+              <Text style={styles.title}>Select Number Of Orders</Text>
+            </View>
+            <View style={styles.infoContainer}>
+              <View style={styles.numberOrderContainer}>
+                <NumberOrder title='1' />
+                <NumberOrder title='2' />
+                <NumberOrder title='3' />
+                <NumberOrder title='4' />
+                <NumberOrder title='5' />
+                <NumberOrder title='6' />
+                <NumberOrder title='7' />
+                <NumberOrder title='8' />
+              </View>
             </View>
           </View>
         )}
@@ -168,6 +187,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingTop: 10,
+  },
+  numberOrderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
 });
 
