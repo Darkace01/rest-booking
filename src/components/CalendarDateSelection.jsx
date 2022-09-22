@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useState } from 'react';
 import { colors, fonts } from '../constants/globalStyles';
@@ -16,6 +16,8 @@ const CalendarDateSelection = () => {
   };
   const [markedDate, setMarkedDate] = useState(initalMarkedDate);
   const [time, setTime] = useState(new Date());
+  const [show, setShow] = useState(false);
+  const [timeString, setTimeString] = useState('Select Time');
   const handleDateSelection = (date) => {
     setMarkedDate({
       [date.dateString]: {
@@ -50,7 +52,22 @@ const CalendarDateSelection = () => {
     return <ArrowRight />;
   };
 
-  const setDate = (event, date) => {};
+  const setDate = (event, date) => {
+    date = date || time;
+    setShow(false);
+    setTime(date);
+  };
+  useEffect(() => {
+    //displaytime as AM or PM
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    let strTime = hours + ':' + minutes + ' ' + ampm;
+    setTimeString(strTime);
+  }, [time]);
   return (
     <View style={styles.container}>
       <Calendar
@@ -83,14 +100,22 @@ const CalendarDateSelection = () => {
           <Text style={styles.timeTitle}>Time</Text>
         </View>
         <View style={styles.timePickerContainer}>
-          <TouchableOpacity style={styles.timePicker}>
-            <Text style={styles.timePickerText}>
-              {time.toLocaleTimeString()}
-            </Text>
+          <TouchableOpacity
+            style={styles.timePicker}
+            onPress={() => setShow(!show)}
+          >
+            <Text style={styles.timePickerText}>{timeString}</Text>
           </TouchableOpacity>
         </View>
       </View>
-      {/* <RNDateTimePicker mode='time' onChange={setDate} value={time} /> */}
+      {show && (
+        <RNDateTimePicker
+          mode='time'
+          onChange={setDate}
+          value={time}
+          minimumDate={today}
+        />
+      )}
     </View>
   );
 };
